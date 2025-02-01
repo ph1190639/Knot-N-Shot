@@ -1,0 +1,32 @@
+{
+  "name": "knot-n-shot",
+  "version": "1.0.0",
+  "description": "A professional marriage shoot booking website built with the MERN stack (MongoDB, Express.js, React, Node.js). This platform allows clients to view the photographer's portfolio, book shoots, and explore pricing packages. It includes features like a dynamic gallery, booking system, payment integration, and admin dashboard for managing bookings and content.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "marriage photography",
+    "booking system",
+    "MERN stack",
+    "portfolio website",
+    "wedding shoot"
+  ],
+  "author": "portfolio website,",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "mongoose": "^8.9.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9"
+  }
+}
