@@ -4,7 +4,7 @@
 
 
  const createAdmin = async (req, res) => {
-  const { name, email, password } =  req.body;
+  const { name, phone, email, password } =  req.body;
   if (!name || !email || !password) {
     return res.status(400).json({ message: "Please provide name, email, and password." });
   }
@@ -20,6 +20,7 @@
 
     const admin = await User.create({
       name,
+      phone,
       email,
       password: hashedPassword,
       role: "Admin", // Manually assign admin role
@@ -44,9 +45,9 @@
 };
 
 const registerUser = async(req, res) => {
-  const { name, email, password, role } =  req.body;
+  const { name, phone, email, password, role } =  req.body;
 
-  if(!name || !email || !password){
+  if(!name || !phone || !email || !password){
     return res.status(400).json({message: " please provide all feilds"})
   }
   try{
@@ -60,7 +61,7 @@ const registerUser = async(req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
  
     const user = await User.create({
-      name, email, password: hashedPassword,
+      name, phone, email, password: hashedPassword,
       role
     });
 
@@ -68,6 +69,7 @@ const registerUser = async(req, res) => {
       message: "User registered successfully.",
       user: {
         id: user.id,
+        phone: user.phone,
         name: user.name,
         email: user.email,
         role: user.role

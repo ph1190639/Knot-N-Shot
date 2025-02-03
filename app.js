@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 
 const connectMongoDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
 
 dotenv.config()
 
@@ -19,7 +20,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
-
+app.use("/api/users", bookingRoutes);
 
 //Call the connectMongoDB function to connect to the database
 connectMongoDB();
