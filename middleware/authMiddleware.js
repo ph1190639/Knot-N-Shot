@@ -20,7 +20,7 @@ const protect = async (req, res, next) => {
     
     // Fetch user details and attach to req.user (excluding password)
     req.user = await User.findById(decoded.id).select("-password");
-    console.log("User found:", req.user);
+    
 
     if (!req.user) {
       return res.status(404).json({ message: "User not found" });
@@ -34,7 +34,6 @@ const protect = async (req, res, next) => {
 };
 
 const checkAdmin = (req, res, next) => {
-  console.log("User Role:", req.user.role);
   if (req.user && req.user.role === "Admin") {
     next();
   } else {
